@@ -1,4 +1,4 @@
-<x-panel class="flex flex-col text-center">>
+<x-panel class="flex flex-col text-center">
     <div class="self-start text-sm">Laracasts</div>
     <div class="py-8">
             <h3 class="group-hover:text-blue-800 text-xl font-bold transition-colors duration-300">Video Producer</h3>
