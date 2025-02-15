@@ -7,9 +7,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [JobController::class, 'index']);
 
-Route::get('/register', [registeredUserController::class, 'create']);
-Route::post('/register', [registeredUserController::class, 'store']);
+route::midlleware('guest')->group(function () {
+    Route::get('/register', [registeredUserController::class, 'create']);
+    Route::post('/register', [registeredUserController::class, 'store']);
+    
+    Route::get('/login', [sessionController::class, 'create']);
+    Route::post('/login', [sessionController::class, 'store']);
+});
 
-Route::get('/login', [sessionController::class, 'create']);
-Route::post('/login', [sessionController::class, 'store']);
-Route::post('/logout', [sessionController::class, 'destroy']);
+Route::post('/logout', [sessionController::class, 'destroy'])->middleware('auth');
