@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\registeredUserController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\sessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [JobController::class, 'index']);
+Route::get('/search', SearchController::class);
 
 route::middleware('guest')->group(function () {
     Route::get('/register', [registeredUserController::class, 'create']);
